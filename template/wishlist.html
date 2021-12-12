@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>WISH LIST</h1>
+{% for i in prodts %}
+
+    <div class="shadow card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="container">
+                        <div class="product-image">
+                        <a  href="{{i.prowishkee.get_url}}"><img src="{{i.prowishkee.img.url}}" height="70px" width="70px"></a>
+                        </div>
+                        <p class="card-text">{{i.prowishkee.price}} Rs\-x1</p>
+                        <p class="card-text">description:  {{i.prowishkee.desc|truncatechars:7}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+<!--            <div class="shadow card">-->
+<!--                <div class="card-body">-->
+                <h5 class="card-title">{{i.prowishkee.name}}</h5>
+                    <div class="product-quantity">
+
+                    <h4>{{i.amount_each}}</h4>
+                    </div>
+                    <a  href="{% url 'addtocart' i.prowishkee.slug %}"><button type="save for later" class="btn btn-primary" >Move to cart</button></a>
+                    <a  href="{% url 'remvwshlist' i.prowishkee.slug %}"><button type="remove" class="btn btn-primary"><i class="fa fa-trash-o" style="font-size:24px"></i>Remove</button></a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{{i.prowishkee.name}}
+{% endfor %}
+{% endblock %}
