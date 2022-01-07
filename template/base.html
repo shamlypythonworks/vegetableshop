@@ -38,22 +38,19 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 			<div class="login-box">
                         <div class="login-box">
-                        <select name="form" class="selectpicker show-tick form-control" onchange="location = this.value;">
-                            <option value="">Register/login</option>
-                            {% if user.is_authenticated %}
-                                <option value="">hai {{user.username}}</option>
-                                <option value="{% url 'logout' %}">logout</option>
-
-                            {% else %}
-                                <option value="{% url 'login' %}">login</option>
-                            <option value="{% url 'appointment' %}">Register Here</option>
-                            {% endif %}
-                        </select>
-					</div>
-
-					</div>
-
-                </div>
+				<select name="form" class="selectpicker show-tick form-control" onchange="location = this.value;">
+				    <option value="">Register/login</option>
+				    {% if user.is_authenticated %}
+					<option value="">hai {{user.username}}</option>
+					<option value="{% url 'logout' %}">logout</option>
+				    {% else %}
+					<option value="{% url 'login' %}">login</option>
+				    <option value="{% url 'appointment' %}">Register Here</option>
+				    {% endif %}
+				</select>
+			</div>
+                        </div>
+		 </div>
             </div>
         </div>
     </div>
@@ -68,7 +65,7 @@
                 <div class="navbar-header">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
-                </button>
+                    </button>
                     <a class="navbar-brand" href="/"><img src="{% static 'hm/images/logo.png' %}" class="logo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
@@ -83,8 +80,8 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/">all products</a></li>
                                 {% for i in catgs %}
-								    <li><a href={{i.get_url}}>{{i.ctname}}</a></li>
-							    {% endfor %}
+				<li><a href={{i.get_url}}>{{i.ctname}}</a></li>
+				{% endfor %}
                             </ul>
                         </li>
                     </ul>
@@ -95,12 +92,8 @@
                 <div class="attr-nav">
                     <ul>
                         <li class="side-menu">
-							<a href="#">
-								<i class="fa fa-shopping-bag"></i>
-								<span class="badge">number of items in cart {{itc}}</span>
-								<p>My Cart</p>
-							</a>
-						</li>
+			<a href="#"><i class="fa fa-shopping-bag"></i><span class="badge">number of items in cart {{itc}}</span><p>My Cart</p></a>
+			</li>
                     </ul>
                 </div>
                 <!-- End Atribute Navigation -->
